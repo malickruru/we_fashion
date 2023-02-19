@@ -14,7 +14,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             @foreach (json_decode($links) as $link)
             <li class="nav-item">
-                <a class="nav-link link-light text-decoration-none" href="$link->uri">{{$link->name}}</a>
+                <a class="nav-link link-light text-decoration-none" href="{{route($link->uri)}}">{{$link->name}}</a>
             </li>
             @endforeach
           {{-- <li class="nav-item">

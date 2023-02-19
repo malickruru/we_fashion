@@ -14,7 +14,7 @@
     @php
       $links = json_encode([["name" => "SOLDE","uri" => "/"]]);
     @endphp
-    <x-header :links="$links" />
+    <x-header :links="$links" :isAdmin="false"/>
     
     @yield('content')
 

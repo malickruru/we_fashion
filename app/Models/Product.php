@@ -22,9 +22,14 @@ class Product extends Model
         'category_id',
     ];
     
-    // la méthode size retourne toutes les tailles liées à l'instance de la classe produit
+    // la méthode sizes retourne toutes les tailles liées à l'instance de la classe produit
     public function sizes(){
         return $this->belongsToMany(Size::class, 'pivot_product_size', 'product_id', 'size_id');
+    }
+
+    // la méthode categorie retourne la catégorie liées à l'instance de la classe produit
+    public function categorie(){
+        return $this->belongsTo(Categorie::class, 'category_id');
     }
 
 

@@ -30,7 +30,7 @@ return new class extends Migration
             $table->boolean('isVisible');
             $table->boolean('isDiscount');
             $table->string('reference')->unique();
-            $table->foreignId('category_id')->references('id')->on('categories');
+            $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

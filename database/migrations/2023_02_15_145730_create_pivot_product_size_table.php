@@ -18,8 +18,8 @@ return new class extends Migration
     {
         Schema::create('pivot_product_size', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->references('id')->on('products');
-            $table->foreignId('size_id')->references('id')->on('sizes');
+            $table->foreignId('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreignId('size_id')->references('id')->on('sizes')->onDelete('cascade');
             $table->timestamps();
         });
     }
