@@ -2,7 +2,7 @@
 @section('title', 'wefashion - voir produit')
 @section('content')
     <div class="container mt-5">
-
+        <x-message />
         <div class="row">
             <div class="col-md-8 d-flex align-items-center flex-column" >
                 <div>
@@ -27,7 +27,8 @@
                     <span class="badge text-bg-warning">en solde</span>
                 @endif
 
-                <form action="" method="post">
+                <form action="{{route('cart.add',['id' => $product->id ,'price' => $product->price,'quantity' => 1,'option' => $product])}}" method="post">
+                    @csrf
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Tailles </label>
                         <select name="size" class="form-control">

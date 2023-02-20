@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductController;
@@ -45,4 +46,14 @@ Route::middleware('admin')->group(function () {
     Route::post('/admin/categorie_edit', [CategorieController::class, 'update'])->name('admin.categorie_edit');
     Route::post('/admin/categorie_delete', [CategorieController::class, 'destroy'])->name('admin.categorie_delete');
 
+});
+
+
+Route::middleware('auth')->group(function () {
+    // les routes de gestion du panier
+    Route::get('/panier', [CartController::class, 'showCart'])->name('cart');
+    Route::post('/ajout-panier/{id}/{price}/{quantity}', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::post('/retirer-produit/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+    Route::post('/mettre-a-jour-quantite/{id}', [CartController::class, 'updateQuantity'])->name('cart.update.quantity');
+    Route::post('/vider-panier', [CartController::class, 'clearCart'])->name('cart.clear');
 });

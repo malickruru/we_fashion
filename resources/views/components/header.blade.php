@@ -26,6 +26,7 @@
             <a class="link-light text-decoration-none" href="/">Interface client</a>
           @endif
         </span>
+        <a class="link-light text-decoration-none px-3" href="{{route('cart')}}"><i class="bi bi-cart-fill"></i></a>
       </div>
     </div>
   </nav>
