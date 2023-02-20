@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -16,9 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [CustomerController::class, 'all'])->name('all');
+Route::get('/en_solde', [CustomerController::class, 'isDiscount'])->name('isDiscount');
+Route::get('/categorie/{id}', [CustomerController::class, 'sortByCategorie'])->name('categorie');
+Route::get('/show/{id}', [CustomerController::class, 'show'])->name('show');
+
 
 Route::get('/login', [UserController::class, 'showLogin'])->name('showLogin');
 Route::post('/login', [UserController::class, 'login'])->name('login');
@@ -34,12 +37,12 @@ Route::middleware('admin')->group(function () {
     Route::post('/admin/product_edit', [ProductController::class, 'update'])->name('admin.product_edit');
     Route::post('/admin/product_delete', [ProductController::class, 'destroy'])->name('admin.product_delete');
 
-     // les routes CRUD du model categorie , accessible que pour l'adminstrateur
-     Route::get('/admin/categorie_list', [CategorieController::class, 'index'])->name('admin.categorie_list');
-     Route::get('/admin/categorie_add', [CategorieController::class, 'create'])->name('admin.categorie_add_form');
-     Route::post('/admin/categorie_add', [CategorieController::class, 'store'])->name('admin.categorie_add');
-     Route::get('/admin/categorie_edit/{id}', [CategorieController::class, 'edit'])->name('admin.categorie_edit_form');
-     Route::post('/admin/categorie_edit', [CategorieController::class, 'update'])->name('admin.categorie_edit');
-     Route::post('/admin/categorie_delete', [CategorieController::class, 'destroy'])->name('admin.categorie_delete');
- 
+    // les routes CRUD du model categorie , accessible que pour l'adminstrateur
+    Route::get('/admin/categorie_list', [CategorieController::class, 'index'])->name('admin.categorie_list');
+    Route::get('/admin/categorie_add', [CategorieController::class, 'create'])->name('admin.categorie_add_form');
+    Route::post('/admin/categorie_add', [CategorieController::class, 'store'])->name('admin.categorie_add');
+    Route::get('/admin/categorie_edit/{id}', [CategorieController::class, 'edit'])->name('admin.categorie_edit_form');
+    Route::post('/admin/categorie_edit', [CategorieController::class, 'update'])->name('admin.categorie_edit');
+    Route::post('/admin/categorie_delete', [CategorieController::class, 'destroy'])->name('admin.categorie_delete');
+
 });

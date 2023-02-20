@@ -12,7 +12,7 @@
   </head>
   <body>
     @php
-      $links = json_encode([["name" => "PRODUITS","uri" => "admin.product_list"],["name" => "CATEGORIES","uri" => "admin.categorie_list"]]);
+      $links = json_encode([["name" => "PRODUITS","uri" => "admin/product_list"],["name" => "CATEGORIES","uri" => "admin/categorie_list"]]);
     @endphp
     <x-header :links="$links" />
     

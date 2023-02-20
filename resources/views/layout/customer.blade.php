@@ -12,7 +12,11 @@
   </head>
   <body>
     @php
-      $links = json_encode([["name" => "SOLDE","uri" => "/"]]);
+      $links = [["name" => "SOLDE","uri" => "/en_solde"]];
+      foreach ($categorie as $c) {
+        array_push($links,["name" => strtoupper($c->name),"uri" => '/categorie/'.$c->id]);
+      };
+      $links = json_encode($links);
     @endphp
     <x-header :links="$links" :isAdmin="false"/>
     
