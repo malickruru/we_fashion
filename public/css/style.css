@@ -1,4 +1,4 @@
-
+@import url('https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap-grid.min.css');
 /* colors */
 .white{
     color: white !important;
@@ -15,15 +15,15 @@
 /* card */
 
 .custom-card{
-    display: block;
+    /* display: block;
     border: none;
-    margin: 20px;
+    margin: 20px; */
     /* padding: 10px; */
     text-decoration: none;
     height: 400px;
     overflow: hidden;
     position: relative;
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 
 .custom-card > .card-img-top{
@@ -32,7 +32,7 @@
 }
 
 .custom-card > .card-body{
-    height: 75px;
+    height: 150px;
     position: absolute;
     background-color: #fff;
     bottom: 0;

@@ -2,6 +2,7 @@
 @section('title', 'wefashion - accueil')
 @section('content')
 <div class="container mt-5">
+    <x-message/>
     <div class="row">
         <div class="col-12 d-flex justify-content-end">
             {{$products->count()}} résultats
@@ -16,7 +17,7 @@
     </div>
     <div class="row">
         <div class="col-12 d-flex justify-content-end">
-            {{$products->onEachSide(1)->links()}}
+            {{$products->onEachSide(1)->links('pagination.custom')}}
             
         </div>
     </div>

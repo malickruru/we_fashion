@@ -26,6 +26,7 @@ Route::get('/show/{id}', [CustomerController::class, 'show'])->name('show');
 
 Route::get('/login', [UserController::class, 'showLogin'])->name('showLogin');
 Route::post('/login', [UserController::class, 'login'])->name('login');
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 
 Route::middleware('admin')->group(function () {

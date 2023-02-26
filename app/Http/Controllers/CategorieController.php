@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class CategorieController extends Controller
 {
     /**
-     * afficher la liste des produits
+     * afficher la liste des categorie
      */
     public function index() 
     {

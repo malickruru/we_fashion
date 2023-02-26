@@ -5,13 +5,13 @@
         <x-message />
         <div class="row">
             <div class="col-md-12 " >
-                <h1>Mon panier</h1>
-                <table class="table table-striped">
+                <h1 class="text-4xl my-2">Mon panier</h1>
+                <table class="table  w-full ">
                 <thead>
                     <tr>
-                        <th table-striped scope="col">Produit</th>
-                        <td></td>
-                        <td></td>
+                        <th table-striped scope="col">Image</th>
+                        <td>Nom du produit</td>
+                        <td>Quantité</td>
                         
                         <th scope="col">Prix</th>
                         
@@ -29,7 +29,7 @@
                             <td>
                                 <form action="{{route('cart.update.quantity',['id' => $product['id'] ])}}" method="POST">
                                     @csrf
-                                    <input type="number" name="newQuantity" min="1" value="{{$product['quantity']}}">
+                                    <input type="number" name="newQuantity" min="1" class="input input-bordered" value="{{$product['quantity']}}">
                                     <button class="btn btn-primary" title="mettre à jour la quantitée"><i class="bi bi-arrow-down-up"></i></button>
                                 </form>
                                 
@@ -40,7 +40,7 @@
                             <td>
                                 <form action="{{route('cart.remove',['id' => $product['id'] ])}}" method="POST" >
                                     @csrf
-                                    <button class="btn btn-danger" title="retirer du panier"><i class="bi bi-slash-circle"></i></button>
+                                    <button class="btn btn-error" title="retirer du panier"><i class="bi bi-slash-circle"></i></button>
                                 </form>
                             </td>
                         </tr>
@@ -58,7 +58,7 @@
             <form action="{{route('cart.clear')}}" method="POST">
                 @csrf
     
-                <button class="btn btn-danger m-3" title="vider le panier"><i class="bi bi-trash"></i></button>
+                <button class="btn btn-active btn-error m-3" title="vider le panier"><i class="bi bi-trash"></i></button>
             </form>
             
             </div>

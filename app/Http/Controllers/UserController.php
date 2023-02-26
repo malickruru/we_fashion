@@ -42,4 +42,11 @@ class UserController extends Controller
 
         return redirect()->back()->with('error', 'Adresse email ou mot de passe incorrect.')->withInput();
     }
+// fonctionde déconnection
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect()->back()->with('error', 'Vous êtes déconnecté !');
+    }
 }

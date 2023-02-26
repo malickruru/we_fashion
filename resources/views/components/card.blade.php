@@ -1,7 +1,10 @@
-<a class="card custom-card" href="{{URL::to('/show/'.$link)}}" style="width: 18rem;">
-    <img src="{{URL::to($image)}}" class="card-img-top" >
-    <div class="card-body">
-      <h5 class="card-title black">{{$name}}</h5>
-      <p class="card-text black-fade">{{number_format($price, 2, ',', ' ')}} €</p>
-    </div>
+<a class="card custom-card w-80 bg-base-100 shadow-xl my-4	" href="{{URL::to('/show/'.$link)}}">
+  <img class="card-img-top" src="{{URL::to($image)}}" alt="Shoes" />
+  <div class="card-body">
+    <h2 class="card-title">
+      {{$name}}
+    </h2>
+    <p>{{number_format($price, 2, ',', ' ')}} €</p>
+    
+  </div>
 </a>

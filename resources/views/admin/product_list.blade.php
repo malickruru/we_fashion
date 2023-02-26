@@ -20,7 +20,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <table class="table table-striped">
+                <table class="table table-striped w-full">
                     <thead>
                         <tr>
                             <th scope="col">Nom</th>
@@ -42,12 +42,12 @@
                                         standard
                                     @endif
                                 </td>
-                                <td><a href="{{ route('admin.product_edit_form', ['id' => $p->id]) }}">modifier</a></td>
+                                <td><a class="btn  btn-primary" href="{{ route('admin.product_edit_form', ['id' => $p->id]) }}">modifier</a></td>
                                 <td>
                                     <form action="{{ route('admin.product_delete') }}" method="post">
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $p->id }}">
-                                        <button type="submit" class="btn btn-danger"
+                                        <button type="submit" class="btn btn-error"
                                             title="attention cette action est irréversible">supprimer</a>
                                     </form>
 
@@ -62,9 +62,9 @@
                 
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 d-flex justify-content-center">
-                {{ $products->links() }}
+        <div class="row my-3">
+            <div class="col-12 flex justify-end">
+                {{ $products->links('pagination.custom') }}
             </div>
         </div>
     </div>
